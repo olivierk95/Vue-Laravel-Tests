@@ -26,6 +26,8 @@ import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
 import EditComponent from './components/EditComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
+import RegistrationComponent from './components/RegistrationComponent.vue';
+import ConnectionComponent from './components/ConnectionComponent.vue';
 
 const routes = [
     {
@@ -47,6 +49,16 @@ const routes = [
         name: 'edit',
         path: '/edit/:id',
         component: EditComponent
+    },
+    {
+        name: 'connection',
+        path: '/connect',
+        component: ConnectionComponent
+    },
+    {
+        name: 'registration',
+        path: '/register',
+        component: RegistrationComponent
     },
 ]
 
