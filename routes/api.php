@@ -23,4 +23,4 @@ Route::post('/post/update/{id}',    'PostController@update');
 Route::delete('post/delete/{id}',   'PostController@delete');
 Route::get('/posts',                'PostController@index');
 
-Route::post('/register',            'Auth\RegisterController@create');
+Route::post('/register',            'Auth\RegisterController@register');

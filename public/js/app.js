@@ -2142,7 +2142,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var url = 'http://localhost:8000/api/register';
       this.axios.post(url, this.user).then(function (response) {
-        _this.user = response.data;
+        _this.user = response.data.data;
       });
     }
   }
@@ -37602,6 +37602,7 @@ var render = function() {
     _c(
       "form",
       {
+        attrs: { method: "POST" },
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -37718,7 +37719,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "password" },
+                attrs: { type: "password", name: "password" },
                 domProps: { value: _vm.user.password },
                 on: {
                   input: function($event) {
@@ -37726,6 +37727,37 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.user, "password", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Confirm password:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.password_confirmation,
+                    expression: "user.password_confirmation"
+                  }
+                ],
+                ref: "password",
+                staticClass: "form-control",
+                attrs: { type: "password", name: "password_confirmation" },
+                domProps: { value: _vm.user.password_confirmation },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.user,
+                      "password_confirmation",
+                      $event.target.value
+                    )
                   }
                 }
               })

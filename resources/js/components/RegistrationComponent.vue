@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Registration</h1>
-        <form @submit.prevent="addUser">
+        <form @submit.prevent="addUser" method="POST">
         <input type="hidden" name="_token" :value="csrf">
             <div class="row">
                 <div class="col-md-6">
@@ -33,12 +33,12 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Password:</label>
-                        <input type="password" class="form-control" v-model="user.password">
+                        <input type="password" class="form-control" name="password" v-model="user.password">
                     </div>
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label>Confirm password:</label>
-                        <input type="password" class="form-control">
-                    </div> -->
+                        <input type="password" class="form-control" name="password_confirmation" v-model="user.password_confirmation" ref="password">
+                    </div>  
                 </div>
             </div><br />
             <div class="form-group">
@@ -59,7 +59,7 @@
             addUser() {
                 let url='http://localhost:8000/api/register';
                 this.axios.post(url, this.user).then((response) => {
-                    this.user = response.data;
+                    this.user = response.data.data;
                 });
             }
         }
