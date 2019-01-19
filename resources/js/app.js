@@ -18,6 +18,10 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
 
+//Configuration of Vee-Validate
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
+
 //Imporation of the App.vue in order to build the rendering
 import App from './App.vue';
 
